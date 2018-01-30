@@ -58,6 +58,14 @@ public class DeliveryExecutiveBo {
     this.distanceFromOrder = distanceFromOrder;
   }
 
+  public OrdersBo getOrdersBo() {
+    return ordersBo;
+  }
+
+  public void setOrdersBo(OrdersBo ordersBo) {
+    this.ordersBo = ordersBo;
+  }
+
   @Override
   public String toString() {
     return "DeliveryExecutiveBo{" +
@@ -66,6 +74,7 @@ public class DeliveryExecutiveBo {
         ", currentLatitude=" + currentLatitude +
         ", currentLongitude=" + currentLongitude +
         ", distanceFromOrder=" + distanceFromOrder +
+        ", ordersBo=" + ordersBo +
         '}';
   }
 }

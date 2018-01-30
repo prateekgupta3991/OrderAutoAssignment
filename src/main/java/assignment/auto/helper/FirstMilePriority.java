@@ -28,26 +28,18 @@ public class FirstMilePriority extends DeliveryExecutivePriority {
     super.priorityRank = priorityRank;
   }
 
-  public void setIsApplicable(Boolean isApplicable) {
-    super.isApplicable = isApplicable;
-  }
-
   public Integer getPriorityRank() {
     return super.priorityRank;
-  }
-
-  public Boolean getIsApplicable() {
-    return super.isApplicable;
   }
 
   /**
    * create a max priority queue based on DE distance from order
    * @param deliveryExecutiveBoList
-   * @param order
    */
-  public void createDeliveryExecutiveQueue(List<DeliveryExecutiveBo> deliveryExecutiveBoList, OrdersBo order) {
+  @Override
+  public void createDeliveryExecutiveQueue(List<DeliveryExecutiveBo> deliveryExecutiveBoList) {
     for(DeliveryExecutiveBo de : deliveryExecutiveBoList) {
-      updateDistanceFromRestaurant(de, order);
+      updateDistanceFromRestaurant(de, de.getOrdersBo());
       addDataToQueue(firstMilePriorityQueue, de);
     }
   }

@@ -2,6 +2,7 @@ package assignment.auto.helper;
 
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import assignment.auto.bo.DeliveryExecutiveBo;
 
 /**
@@ -9,6 +10,8 @@ import assignment.auto.bo.DeliveryExecutiveBo;
  */
 @Component
 public abstract class DeliveryExecutivePriority extends Priority {
+
+  public abstract void createDeliveryExecutiveQueue(List<DeliveryExecutiveBo> deliveryExecutiveBoList);
 
   public abstract void addDeliveryExecutive(DeliveryExecutiveBo deliveryExecutiveBo);
 

@@ -26,22 +26,15 @@ public class DeliveryExecutiveWaitTimePriority extends DeliveryExecutivePriority
     super.priorityRank = priorityRank;
   }
 
-  public void setIsApplicable(Boolean isApplicable) {
-    super.isApplicable = isApplicable;
-  }
-
   public Integer getPriorityRank() {
     return super.priorityRank;
-  }
-
-  public Boolean getIsApplicable() {
-    return super.isApplicable;
   }
 
   /**
    * create a max priority queue based on last order delivered time
    * @param deliveryExecutiveBoList
    */
+  @Override
   public void createDeliveryExecutiveQueue(List<DeliveryExecutiveBo> deliveryExecutiveBoList) {
     for(DeliveryExecutiveBo de : deliveryExecutiveBoList) {
       addDataToQueue(deliveryExecutivePriorityQueue, de);

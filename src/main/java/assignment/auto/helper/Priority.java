@@ -10,6 +10,5 @@ import org.springframework.stereotype.Component;
 public abstract class Priority {
 
   protected Integer priorityRank;
-  protected Boolean isApplicable;
 
 }

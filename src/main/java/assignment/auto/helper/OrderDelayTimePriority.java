@@ -26,22 +26,15 @@ public class OrderDelayTimePriority extends OrderPriority {
     super.priorityRank = priorityRank;
   }
 
-  public void setIsApplicable(Boolean isApplicable) {
-    super.isApplicable = isApplicable;
-  }
-
   public Integer getPriorityRank() {
     return super.priorityRank;
-  }
-
-  public Boolean getIsApplicable() {
-    return super.isApplicable;
   }
 
   /**
    * creates a max priority queue based on ordered time
    * @param orderList
    */
+  @Override
   public void createOrderQueue(List<OrdersBo> orderList) {
     for(OrdersBo de : orderList) {
       addDataToQueue(orderPriorityQueue, de);
