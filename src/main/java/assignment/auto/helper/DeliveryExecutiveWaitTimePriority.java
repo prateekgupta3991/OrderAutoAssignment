@@ -13,12 +13,29 @@ import assignment.auto.bo.DeliveryExecutiveBo;
  */
 
 @Component
-public class DeliveryExecutiveWaitTimePriority implements DeliveryExecutivePriority {
+public class DeliveryExecutiveWaitTimePriority extends DeliveryExecutivePriority {
 
   Queue<DeliveryExecutiveBo> deliveryExecutivePriorityQueue;
 
   public DeliveryExecutiveWaitTimePriority() {
+    super();
     this.deliveryExecutivePriorityQueue = new PriorityQueue<>(waitTimeComparator);
+  }
+
+  public void setPriorityRank(Integer priorityRank) {
+    super.priorityRank = priorityRank;
+  }
+
+  public void setIsApplicable(Boolean isApplicable) {
+    super.isApplicable = isApplicable;
+  }
+
+  public Integer getPriorityRank() {
+    return super.priorityRank;
+  }
+
+  public Boolean getIsApplicable() {
+    return super.isApplicable;
   }
 
   /**
@@ -35,6 +52,7 @@ public class DeliveryExecutiveWaitTimePriority implements DeliveryExecutivePrior
    * add a DE to queue
    * @param deliveryExecutiveBo
    */
+  @Override
   public void addDeliveryExecutive(DeliveryExecutiveBo deliveryExecutiveBo) {
     addDataToQueue(deliveryExecutivePriorityQueue, deliveryExecutiveBo);
   }
@@ -43,6 +61,7 @@ public class DeliveryExecutiveWaitTimePriority implements DeliveryExecutivePrior
    * return the max DE if not null
    * @return
    */
+  @Override
   public DeliveryExecutiveBo getDeliveryExecutive() {
     if(!deliveryExecutivePriorityQueue.isEmpty()) {
       return deliveryExecutivePriorityQueue.remove();
@@ -54,6 +73,7 @@ public class DeliveryExecutiveWaitTimePriority implements DeliveryExecutivePrior
    * removes a DE from the queue
    * @param deliveryExecutiveBo
    */
+  @Override
   public void removeDeliveryExecutive(DeliveryExecutiveBo deliveryExecutiveBo) {
     if(!deliveryExecutivePriorityQueue.isEmpty()) {
       deliveryExecutivePriorityQueue.remove(deliveryExecutiveBo);

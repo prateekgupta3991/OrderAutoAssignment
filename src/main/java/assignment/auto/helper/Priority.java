@@ -7,6 +7,9 @@ import org.springframework.stereotype.Component;
  */
 
 @Component
-public interface Priority {
+public abstract class Priority {
+
+  protected Integer priorityRank;
+  protected Boolean isApplicable;
 
 }

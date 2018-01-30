@@ -12,6 +12,7 @@ public class DeliveryExecutiveBo {
   private Double currentLatitude;
   private Double currentLongitude;
   private Double distanceFromOrder;
+  private OrdersBo ordersBo;
 
   public DeliveryExecutiveBo() {
     super();

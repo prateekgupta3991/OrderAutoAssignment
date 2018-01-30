@@ -11,6 +11,7 @@ public class OrdersBo {
   private Date orderedTime;
   private Double currentLatitude;
   private Double currentLongitude;
+  private DeliveryExecutiveBo deliveryExecutiveBo;
 
   public OrdersBo() {
     super();

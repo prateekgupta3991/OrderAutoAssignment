@@ -11,13 +11,13 @@ import assignment.auto.bo.OrdersBo;
  */
 
 @Component
-public interface OrderPriority extends Priority{
+public abstract class OrderPriority extends Priority{
 
-  void createOrderQueue(List<OrdersBo> orderList);
+  public abstract void createOrderQueue(List<OrdersBo> orderList);
 
-  void addOrder(OrdersBo order);
+  public abstract void addOrder(OrdersBo order);
 
-  OrdersBo getOrder();
+  public abstract OrdersBo getOrder();
 
-  void addDataToQueue(Queue<OrdersBo> orderPriorityQueue, OrdersBo order);
+  public abstract void addDataToQueue(Queue<OrdersBo> orderPriorityQueue, OrdersBo order);
 }

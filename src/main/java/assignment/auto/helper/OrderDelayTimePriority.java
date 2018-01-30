@@ -13,12 +13,29 @@ import assignment.auto.bo.OrdersBo;
  */
 
 @Component
-public class OrderDelayTimePriority implements OrderPriority {
+public class OrderDelayTimePriority extends OrderPriority {
 
   Queue<OrdersBo> orderPriorityQueue;
 
   public OrderDelayTimePriority() {
+    super();
     this.orderPriorityQueue = new PriorityQueue<>(orderTimeComparator);
+  }
+
+  public void setPriorityRank(Integer priorityRank) {
+    super.priorityRank = priorityRank;
+  }
+
+  public void setIsApplicable(Boolean isApplicable) {
+    super.isApplicable = isApplicable;
+  }
+
+  public Integer getPriorityRank() {
+    return super.priorityRank;
+  }
+
+  public Boolean getIsApplicable() {
+    return super.isApplicable;
   }
 
   /**

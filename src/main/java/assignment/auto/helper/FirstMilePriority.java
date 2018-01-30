@@ -15,12 +15,29 @@ import assignment.auto.util.Haversine;
  */
 
 @Component
-public class FirstMilePriority implements Priority {
+public class FirstMilePriority extends DeliveryExecutivePriority {
 
   Queue<DeliveryExecutiveBo> firstMilePriorityQueue;
 
   public FirstMilePriority() {
+    super();
     this.firstMilePriorityQueue = new PriorityQueue<>(firstMileComparator);
+  }
+
+  public void setPriorityRank(Integer priorityRank) {
+    super.priorityRank = priorityRank;
+  }
+
+  public void setIsApplicable(Boolean isApplicable) {
+    super.isApplicable = isApplicable;
+  }
+
+  public Integer getPriorityRank() {
+    return super.priorityRank;
+  }
+
+  public Boolean getIsApplicable() {
+    return super.isApplicable;
   }
 
   /**
@@ -50,6 +67,7 @@ public class FirstMilePriority implements Priority {
    * add a DE to queue
    * @param deliveryExecutiveBo
    */
+  @Override
   public void addDeliveryExecutive(DeliveryExecutiveBo deliveryExecutiveBo) {
     addDataToQueue(firstMilePriorityQueue, deliveryExecutiveBo);
   }
@@ -62,6 +80,17 @@ public class FirstMilePriority implements Priority {
     if(!firstMilePriorityQueue.isEmpty())
       return firstMilePriorityQueue.remove();
     return null;
+  }
+
+  /**
+   * removes a DE from the queue
+   * @param deliveryExecutiveBo
+   */
+  @Override
+  public void removeDeliveryExecutive(DeliveryExecutiveBo deliveryExecutiveBo) {
+    if(!firstMilePriorityQueue.isEmpty()) {
+      firstMilePriorityQueue.remove(deliveryExecutiveBo);
+    }
   }
 
   /**

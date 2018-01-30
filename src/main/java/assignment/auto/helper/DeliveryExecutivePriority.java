@@ -2,22 +2,18 @@ package assignment.auto.helper;
 
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-import java.util.Queue;
 import assignment.auto.bo.DeliveryExecutiveBo;
 
 /**
  * Created by prateekgupta on 28/01/18.
  */
 @Component
-public interface DeliveryExecutivePriority extends Priority {
+public abstract class DeliveryExecutivePriority extends Priority {
 
-  void createDeliveryExecutiveQueue(List<DeliveryExecutiveBo> deliveryExecutiveBoList);
+  public abstract void addDeliveryExecutive(DeliveryExecutiveBo deliveryExecutiveBo);
 
-  void addDeliveryExecutive(DeliveryExecutiveBo deliveryExecutiveBo);
+  public abstract DeliveryExecutiveBo getDeliveryExecutive();
 
-  DeliveryExecutiveBo getDeliveryExecutive();
-
-  void addDataToQueue(Queue<DeliveryExecutiveBo> deliveryExecutiveBoPriorityQueue, DeliveryExecutiveBo deliveryExecutiveBo);
+  public abstract void removeDeliveryExecutive(DeliveryExecutiveBo deliveryExecutiveBo);
 
 }
